@@ -6,6 +6,7 @@ authors = [{ name = "Your Name", email = "you@example.com" }]
 requires-python = ">=3.10,<3.14"
 dependencies = [
     "crewai[tools]>=1.15.23,<2.0.0",
+    "serpapi>=1.1.2",
 ]
 
 [project.scripts]
