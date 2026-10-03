@@ -21,7 +21,7 @@ Search uses [Serper](https://serper.dev) through CrewAI's `SerperScrapeWebsiteTo
 Clone the repo and move into it:
 
 ```bash
-git clone https://github.com/<your-user>/Ai-Hotel-Search-Agent.git
+git clone https://github.com/sandeep-singh-ai/Ai-Hotel-Search-Agent.git
 cd Ai-Hotel-Search-Agent
 ```
 
