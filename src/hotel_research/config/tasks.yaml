@@ -1,16 +1,26 @@
 travel_agent_task:
   description: >
-    Conduct a thorough research about {location} hotel in the {location} within the given {miles} miles radius.
-    Make sure you find any interesting and relevant information about the hotel.
+    Search for hotels in {location} for check-in {check_in_date} and check-out {check_out_date}.
+    Call hotel_search_tool with location="{location}", check_in_date="{check_in_date}",
+    check_out_date="{check_out_date}" and miles={miles}.
+    Rank the returned hotels for these traveler preferences: {preferences}.
+    Use only data the tool returned. If the tool returns an error, a note, or no hotels, report that.
   expected_output: >
-    A list with 2 bullet points of the most relevant information about the hotel.
+    A ranked list of up to 8 hotels. For each: name, price per night, total price,
+    Google rating, review count, hotel class, distance in miles, key amenities, link,
+    and one line on why it fits or does not fit the preferences.
+    Include the dates searched and any note or error from the tool.
   agent: travel_agent
 
 tourist_guide_task:
   description: >
-    Review the context you got and guide the user to the best hotel in {location} within the given {miles} miles radius.
-    Make sure the guide is detailed and contains any and all relevant information.
+    Using only the travel agent's ranked list, recommend the best hotel in {location}
+    within {miles} miles for a stay from {check_in_date} to {check_out_date},
+    given these preferences: {preferences}. Also name two runner-up alternatives
+    and explain the trade-offs. Do not add hotels that are not in the list.
+    If the research reported an error or no results, say so instead of recommending.
   expected_output: >
-    A fully 2 bullet points guide with the best hotel in {location} within the given {miles} miles radius.
-    Formatted as markdown without '```'
+    A markdown guide (without '```') with: the stay dates and radius, the top pick with
+    price, rating, reviews, distance, amenities and link, why it is the best fit,
+    and two runner-ups with their trade-offs.
   agent: tourist_guide
